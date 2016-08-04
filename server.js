@@ -14,7 +14,7 @@ var app = express();
 var db = require('./config/db');
 // require('./app/model/Post');
 // require('./app/model/Comment');
-// require('./app/model/User');
+require('./app/model/User');
 require('./config/passport');
 
 // set our port
