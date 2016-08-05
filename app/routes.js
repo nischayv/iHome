@@ -17,12 +17,9 @@ router.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email'
 // handle the callback after facebook has authenticated the user
 router.get('/auth/facebook/callback',
     passport.authenticate('facebook', {
-        successRedirect : '/profile',
-        failureRedirect : '/'
-    }));
-
-
-
+        successRedirect : '/home',
+        failureRedirect : '/login'
+}));
 
 module.exports = router;
 
