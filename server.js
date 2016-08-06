@@ -13,8 +13,6 @@ var app = express();
 // app.use(favicon(path.join(__dirname, 'public/images', 'favicon.png')));
 
 var db = require('./config/db');
-// require('./app/model/Post');
-// require('./app/model/Comment');
 require('./app/model/User');
 require('./config/passport');
 
@@ -30,7 +28,7 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(express.static(__dirname + '/public'));
-app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
+app.use(session({ secret: 'p*.zt[[/Wlb#2x3' })); // session secret
 app.use(passport.initialize());
 app.use(passport.session());
 
