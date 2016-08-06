@@ -10,7 +10,8 @@ if (cluster.isMaster) {
     }
 
     // Listen for dying workers
-    cluster.on('exit', function () {
+    cluster.on('exit', function (worker) {
+        console.log('worker with id' + worker.process.pid + 'died');
         cluster.fork();
     });
 } else {
