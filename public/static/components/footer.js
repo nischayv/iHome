@@ -1,5 +1,4 @@
-import React from "../../bower_components/react/react";
-
+import React from "react";
 
 export default class Footer extends React.Component {
     render() {

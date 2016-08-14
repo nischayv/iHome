@@ -1,4 +1,4 @@
-import React from "../../bower_components/react/react";
+import React from "react";
 
 
 export default class App extends React.Component {
