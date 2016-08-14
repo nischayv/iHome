@@ -1,18 +1,16 @@
-import React from "bower_components/react/react";
-import ReactDOM from "bower_components/react/react-dom";
-import { Router, Route, IndexRoute, hashHistory } from "bower_components/react-router/modules";
+import React from "react";
+import ReactDOM from "react-dom";
+import { Router, Route, IndexRoute, hashHistory } from "react-router";
 
+import App from "./static/components/app";
 import Login from "./static/pages/login";
-import Home from "./static/pages/home";
 
 const app = document.getElementById('app');
 
 ReactDOM.render(
     <Router history={hashHistory}>
-        <Route path="/" component={}>
-            {/*<IndexRoute component={Featured}></IndexRoute>*/}
-            {/*<Route path="archives(/:article)" name="archives" component={Archives}></Route>*/}
-            {/*<Route path="settings" name="settings" component={Settings}></Route>*/}
+        <Route path="/" component={App}>
+            <Route path="login" name="login" component={Login}></Route>
         </Route>
     </Router>,
     app);

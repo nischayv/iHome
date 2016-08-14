@@ -1,20 +1,16 @@
 import React from "../../bower_components/react/react";
-import ReactDOM from "../../bower_components/react/react-dom";
-import { Router, Route, IndexRoute, hashHistory } from "../../bower_components/react-router/modules";
 
-import Login from "./pages/Archives";
-import Home from "./pages/Featured";
-import Layout from "./pages/Layout";
-import Settings from "./pages/Settings";
 
-const app = document.getElementById('app');
-
-ReactDOM.render(
-    <Router history={hashHistory}>
-        <Route path="/" component={Layout}>
-            <IndexRoute component={Featured}></IndexRoute>
-            <Route path="archives(/:article)" name="archives" component={Archives}></Route>
-            <Route path="settings" name="settings" component={Settings}></Route>
-        </Route>
-    </Router>,
-    app);
+export default class App extends React.Component {
+    render() {
+        return (
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="page-header">
+                        <h1>iHome</h1>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+}
