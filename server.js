@@ -9,8 +9,7 @@ var session = require('express-session');
 
 var app = express();
 
-// Uncomment after adding favicon in images folder
-// app.use(favicon(path.join(__dirname, 'public/images', 'favicon.png')));
+app.use(favicon(path.join(__dirname, 'public/images', 'favicon.png')));
 
 var db = require('./config/db');
 require('./app/model/User');
