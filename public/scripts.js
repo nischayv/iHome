@@ -2,8 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Route, IndexRoute, hashHistory } from "react-router";
 
-import App from "./static/components/app";
-import Login from "./static/pages/login";
+
+import App from "./static/components/App";
+import Login from "./static/pages/Login";
 
 const app = document.getElementById('app');
 
