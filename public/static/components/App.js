@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
+import { PageHeader, Row, Col } from "react-bootstrap";
 
 export default class App extends React.Component {
     render() {
@@ -7,7 +7,7 @@ export default class App extends React.Component {
             <Row>
                 <Col md={6} mdOffset={3}>
                     <PageHeader>
-                        <h1>iHome</h1>
+                        iHome
                     </PageHeader>
                     {this.props.children}
                 </Col>
