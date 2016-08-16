@@ -1,16 +1,17 @@
 import React from "react";
+import { Row, Col } from "react-bootstrap";
 
 export default class App extends React.Component {
     render() {
         return (
-            <div className="row">
-                <div className="col-md-6 col-md-offset-3">
-                    <div className="page-header">
+            <Row>
+                <Col md={6} mdOffset={3}>
+                    <PageHeader>
                         <h1>iHome</h1>
-                    </div>
+                    </PageHeader>
                     {this.props.children}
-                </div>
-            </div>
+                </Col>
+            </Row>
         );
     }
 }
