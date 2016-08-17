@@ -5,6 +5,7 @@ import { Router, Route, IndexRoute, hashHistory } from "react-router";
 
 import App from "./static/components/App";
 import Login from "./static/pages/Login";
+import Home from "./static/pages/Home";
 
 const app = document.getElementById('app');
 
@@ -12,6 +13,7 @@ ReactDOM.render(
     <Router history={hashHistory}>
         <Route path="/" component={App}>
             <Route path="login" name="login" component={Login}></Route>
+            <Route path="home" name="home" component={Home}></Route>
         </Route>
     </Router>,
 app);

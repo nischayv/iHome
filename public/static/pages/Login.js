@@ -7,14 +7,6 @@ export default class Login extends React.Component {
         super();
     }
 
-    // login() {
-    //     console.log('testing');
-    //     $.ajax({
-    //         url: '/auth/facebook',
-    //         method: 'GET'
-    //     });
-    // }
-
     render() {
         return (
             <Row>

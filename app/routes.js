@@ -4,7 +4,6 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var path = require('path');
 var passport = require('passport');
-// require('../config/passport.js')(passport);
 var User = mongoose.model('User');
 
 // return homepage for angular front end
@@ -13,12 +12,13 @@ router.get('/', function(req, res) {
 });
 
 //routes for authentication
-router.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+//authType: 'rerequest' will request again for declined permissions if needed
+router.get('/auth/facebook', passport.authenticate('facebook', { authType: 'rerequest'}));
 
 // handle the callback after facebook has authenticated the user
 router.get('/auth/facebook/callback',
     passport.authenticate('facebook', {
-        successRedirect : '/home',
+        successRedirect : '/#/home',
         failureRedirect : '/login'
 }));
 
