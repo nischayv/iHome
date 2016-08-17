@@ -49,8 +49,14 @@ module.exports = function(passport) {
                         // set all of the facebook information in our user model
                         newUser.facebook.id    = profile.id;
                         newUser.facebook.token = token;
-                        newUser.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
-                        newUser.facebook.email = profile.emails[0].value;
+                        if(!profile.name.givenName && !profile.name.familyName) {
+                            newUser.facebook.name  = profile.displayName;
+                        }
+                        else {
+                            newUser.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
+                        }
+                        console.log(profile);
+                        //newUser.facebook.email = profile.emails[0].value;
 
                         // save our user to the database
                         newUser.save(function(err) {

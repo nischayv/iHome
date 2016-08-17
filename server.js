@@ -13,7 +13,7 @@ app.use(favicon(path.join(__dirname, 'public/images', 'favicon.png')));
 
 var db = require('./config/db');
 require('./app/model/User');
-require('./config/passport');
+require('./config/passport')(passport);
 
 // set our port
 var port = process.env.PORT || 8080;

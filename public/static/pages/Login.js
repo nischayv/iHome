@@ -1,12 +1,25 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
+import $ from "jquery";
 
 export default class Login extends React.Component {
+    constructor() {
+        super();
+    }
+
+    // login() {
+    //     console.log('testing');
+    //     $.ajax({
+    //         url: '/auth/facebook',
+    //         method: 'GET'
+    //     });
+    // }
+
     render() {
         return (
             <Row>
                 <Col md={6} mdOffset={3}>
-                    <a className="btn btn-block btn-social btn-lg btn-facebook">
+                    <a className="btn btn-block btn-social btn-lg btn-facebook" href="/auth/facebook">
                         <i className="fa fa-facebook"></i>
                         Sign in with Facebook
                     </a>

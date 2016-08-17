@@ -4,6 +4,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var path = require('path');
 var passport = require('passport');
+// require('../config/passport.js')(passport);
 var User = mongoose.model('User');
 
 // return homepage for angular front end
