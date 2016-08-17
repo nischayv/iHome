@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Router, Route, IndexRoute, hashHistory } from "react-router";
+import { Router, Route, IndexRoute, browserHistory} from "react-router";
 
 
 import App from "./static/components/App";
@@ -10,7 +10,7 @@ import Home from "./static/pages/Home";
 const app = document.getElementById('app');
 
 ReactDOM.render(
-    <Router history={hashHistory}>
+    <Router history={browserHistory}>
         <Route path="/" component={App}>
             <Route path="login" name="login" component={Login}></Route>
             <Route path="home" name="home" component={Home}></Route>
