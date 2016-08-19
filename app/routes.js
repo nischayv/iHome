@@ -6,6 +6,16 @@ var path = require('path');
 var passport = require('passport');
 var User = mongoose.model('User');
 
+function isLoggedIn(req, res, next) {
+
+    // if user is authenticated in the session, carry on
+    if (req.isAuthenticated())
+        return next();
+
+    // if they aren't redirect them to the home page
+    res.redirect('/#/login');
+}
+
 // return homepage for angular front end
 router.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '../public', 'index.html'));
@@ -21,6 +31,11 @@ router.get('/auth/facebook/callback',
         successRedirect : '/#/home',
         failureRedirect : '/login'
 }));
+
+router.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/');
+});
 
 module.exports = router;
 
