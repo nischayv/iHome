@@ -11,16 +11,14 @@ import Home from "./static/pages/Home";
 const app = document.getElementById('app');
 
 function isLoggedIn() {
-    console.log('testing');
     $.ajax({
         url: 'http://localhost:8080/api/isLoggedIn',
         method: 'GET',
-        dataType: 'json',
         success: function(data) {
             console.log(data);
-            if(data === null) {
-                browserHistory.push('/login');
-            }
+        },
+        error: function() {
+            browserHistory.push('/login');
         }
     });
 }

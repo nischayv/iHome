@@ -6,18 +6,6 @@ var path = require('path');
 var passport = require('passport');
 var User = mongoose.model('User');
 
-// var isLoggedIn = function (req, res, next) {
-//
-//     console.log('Is in logged in function');
-//     // if user is authenticated in the session, carry on
-//     if (req.isAuthenticated()) {
-//         return next();
-//     }
-//
-//     // if they aren't redirect them to the home page
-//     res.redirect('/login');
-// };
-
 //routes for authentication
 //authType: 'rerequest' will request again for declined permissions if needed
 router.get('/auth/facebook', passport.authenticate('facebook', { authType: 'rerequest'}));
@@ -30,12 +18,11 @@ router.get('/auth/facebook/callback',
 }));
 
 router.get('/api/isLoggedIn', function(req, res) {
-    console.log('testing');
     if(req.isAuthenticated()) {
         res.json(req.user);
     }
     else {
-        res.json({'test': 'test'});
+        res.status(401).send('Please log in to continue');
     }
 });
 
@@ -45,6 +32,7 @@ router.get('/api/logout', function(req, res) {
 });
 
 router.get('/api/test', function(req, res) {
+    console.log(req);
     res.json({'test': 'test'});
 });
 
