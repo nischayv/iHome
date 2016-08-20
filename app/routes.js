@@ -6,20 +6,17 @@ var path = require('path');
 var passport = require('passport');
 var User = mongoose.model('User');
 
-function isLoggedIn(req, res, next) {
-
-    // if user is authenticated in the session, carry on
-    if (req.isAuthenticated())
-        return next();
-
-    // if they aren't redirect them to the home page
-    res.redirect('/#/login');
-}
-
-// return homepage for angular front end
-router.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, '../public', 'index.html'));
-});
+// var isLoggedIn = function (req, res, next) {
+//
+//     console.log('Is in logged in function');
+//     // if user is authenticated in the session, carry on
+//     if (req.isAuthenticated()) {
+//         return next();
+//     }
+//
+//     // if they aren't redirect them to the home page
+//     res.redirect('/login');
+// };
 
 //routes for authentication
 //authType: 'rerequest' will request again for declined permissions if needed
@@ -28,13 +25,32 @@ router.get('/auth/facebook', passport.authenticate('facebook', { authType: 'rere
 // handle the callback after facebook has authenticated the user
 router.get('/auth/facebook/callback',
     passport.authenticate('facebook', {
-        successRedirect : '/#/home',
+        successRedirect : '/home',
         failureRedirect : '/login'
 }));
 
-router.get('/logout', function(req, res) {
+router.get('/api/isLoggedIn', function(req, res) {
+    console.log('testing');
+    if(req.isAuthenticated()) {
+        res.json(req.user);
+    }
+    else {
+        res.json({'test': 'test'});
+    }
+});
+
+router.get('/api/logout', function(req, res) {
     req.logout();
-    res.redirect('/');
+    res.redirect('/login');
+});
+
+router.get('/api/test', function(req, res) {
+    res.json({'test': 'test'});
+});
+
+// return homepage for react front end
+router.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
 module.exports = router;
